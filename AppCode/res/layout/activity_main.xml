@@ -5,11 +5,51 @@
     android:layout_height="match_parent" >
 
     <TextView
+        android:layout_marginTop="50dp"
+        android:id="@+id/text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
-        android:text="@string/hello_world"
+        android:textSize="30sp"
+        android:text="@string/bullet_hell"
         tools:context=".MainActivity" />
+
+    <Button
+        android:id="@+id/play_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/text"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:text="@string/play"
+        android:textSize="24sp" />
+
+    <Button 
+        android:layout_centerHorizontal="true"
+        android:id="@+id/about_button"
+        android:layout_marginTop="10dp"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/about"
+        android:textSize="24sp"
+        android:layout_below="@id/play_button"/>
+    <Button 
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:id="@+id/options_button"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/options"
+        android:textSize="24sp"
+        android:layout_below="@id/about_button"/>
+    <Button
+        android:id="@+id/high_score_button"
+        android:layout_marginTop="10dp"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/options_button"
+        android:text="@string/high_scores"
+        android:textSize="24sp" />
 
 </RelativeLayout>

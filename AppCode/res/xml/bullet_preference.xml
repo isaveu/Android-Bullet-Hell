@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" >
+    <Preference android:key="@string/clear_scores_key" android:title="@string/clear_scores"/>
+    <ListPreference android:entries="@array/ship_array" android:entryValues="@array/ship_array" android:title="@string/ship_select" android:summary="@string/ship_select_d" android:key="@string/ship_select_k" android:defaultValue="@string/galaga"/>
+    
+
+</PreferenceScreen>
