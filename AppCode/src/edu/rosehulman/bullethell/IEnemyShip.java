@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
+import android.util.Log;
 
 public abstract class IEnemyShip {
 
@@ -13,6 +14,27 @@ public abstract class IEnemyShip {
 	private ArrayList<Point> pointList;
 	private int move_speed;
 	private static int COLLISION_BUFFER = 4;
+	private long lastFire;
+	private int value = 100;
+	public long getLastFire() {
+		return lastFire;
+	}
+
+	public void setLastFire(long lastFire) {
+		this.lastFire = lastFire;
+	}
+
+	public int getFireRate() {
+		return fireRate;
+	}
+
+	public void setFireRate(int fireRate) {
+		this.fireRate = fireRate;
+	}
+
+
+	private int fireRate;
+	
 	
 	public void setMove_speed(int move_speed) {
 		this.move_speed = move_speed;
@@ -49,21 +71,20 @@ public abstract class IEnemyShip {
 	}
 
 	public int getTop() {
-		return y + (bitmap.getHeight() / 2) + COLLISION_BUFFER;
+		return y - (bitmap.getHeight() / 2) + COLLISION_BUFFER;
 	}
 
 	public int getLeft() {
-		return x - (bitmap.getWidth() / 2) - COLLISION_BUFFER;
+		return x - (bitmap.getWidth() / 2) + COLLISION_BUFFER;
 	}
 
 	public int getBottom() {
-		return y - (bitmap.getHeight() / 2) + COLLISION_BUFFER;
+		return y + (bitmap.getHeight() / 2) - COLLISION_BUFFER;
 	}
 
 	public int[] getCollisionVals(){
 		return new int[]{getLeft(),getBottom(),getRight(),getTop()};
 	}
-	
 
 	public void draw(Canvas c) {
 		c.drawBitmap(bitmap, x - (bitmap.getWidth() / 2),
@@ -95,9 +116,26 @@ public abstract class IEnemyShip {
 		}
 		return false;
 	}
-	
+	public boolean isFire(){
+		return System.currentTimeMillis() > lastFire + fireRate;
+	}
 	private Point getNextPoint(){
 		return pointList.get(0);
+	}
+	
+	public void setFireTime(){
+		lastFire = System.currentTimeMillis();
+	}
+	
+	
+	public abstract ArrayList<Bullet> getBullets(Bitmap b);
+
+	public int getValue() {
+		return value;
+	}
+
+	public void setValue(int value) {
+		this.value = value;
 	}
 	
 

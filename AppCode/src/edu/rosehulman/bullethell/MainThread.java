@@ -28,6 +28,7 @@ public class MainThread extends Thread {
 	@Override
 	public void run() {
 		Canvas canvas;
+		boolean triedOnce = false;
 		long enemyCountDown = System.currentTimeMillis();
 		long beginTime;
 		int sleepTime;
@@ -62,7 +63,7 @@ public class MainThread extends Thread {
 						sleepTime += FRAME_PERIOD;
 					}
 					
-					if(System.currentTimeMillis() - 2000 > enemyCountDown){
+					if(System.currentTimeMillis() - gamePanel.getEnemyWait() > enemyCountDown){
 						gamePanel.spawnEnemy();
 						enemyCountDown = System.currentTimeMillis();
 					}
@@ -70,6 +71,16 @@ public class MainThread extends Thread {
 				}
 			} finally {
 				surfaceHolder.unlockCanvasAndPost(canvas);
+				if (gamePanel.isGameOver() && !triedOnce){
+					triedOnce = true;
+					Thread t = new Thread(){
+						public void run() {
+							Looper.prepare();
+							gamePanel.parent.endGame();};
+					};
+					t.start();
+						
+				}
 			}
 		}
 		Log.d("TEST", "Thread ended");

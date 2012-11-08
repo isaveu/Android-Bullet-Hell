@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import android.graphics.Bitmap;
 
 public class NormalEnemyRight extends IEnemyShip {
+	private boolean oddFire;
 	public NormalEnemyRight(Bitmap bitmap, int width, int height) {
 		this.setX(width / 2);
 		this.setY(0);
@@ -17,6 +18,26 @@ public class NormalEnemyRight extends IEnemyShip {
 		this.setMove_speed(8);
 		this.setPointList(points);
 		this.setBitmap(bitmap);
+		this.setFireRate(250);
+		this.setValue(100);
+		oddFire = true	;
+		this.setLastFire(System.currentTimeMillis());
+	}
+
+	@Override
+	public ArrayList<Bullet> getBullets(Bitmap b) {
+		ArrayList<Bullet> list = new ArrayList<Bullet>();
+		if (oddFire) {
+			list.add(new Bullet(new Point(getX(), getY()), false, b,
+					Bullet.SOUTH));
+		} else {
+//			list.add(new Bullet(new Point(getX(), getY()), false, b,
+//					Bullet.SOUTHEAST));
+			list.add(new Bullet(new Point(getX(), getY()), false, b,
+					Bullet.SOUTHWEST));
+		}
+		oddFire = !oddFire;
+		return list;
 	}
 
 }

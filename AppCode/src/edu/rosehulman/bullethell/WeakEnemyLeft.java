@@ -18,5 +18,15 @@ public class WeakEnemyLeft extends IEnemyShip {
 		this.setMove_speed(4);
 		this.setPointList(points);
 		this.setBitmap(bitmap);
+		this.setFireRate(500);
+		this.setValue(50);
+		this.setLastFire(System.currentTimeMillis());
+	}
+
+	@Override
+	public ArrayList<Bullet> getBullets(Bitmap b) {
+		ArrayList<Bullet> list = new ArrayList<Bullet>();
+		list.add(new Bullet(new Point(getX(),getY()), false, b, Bullet.SOUTH));
+		return list;
 	}
 }

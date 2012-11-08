@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="high_score_1_name_key">HIGH SCORE 1</string>
+    <string name="high_score_2_name_key">HIGH SCORE 2</string>
+    <string name="high_score_3_name_key">HIGH SCORE 3</string>
+    <string name="high_score_4_name_key">HIGH SCORE 4</string>
+    <string name="high_score_5_name_key">HIGH SCORE 5</string>
+    <string name="high_score_6_name_key">HIGH SCORE 6</string>
+    <string name="high_score_7_name_key">HIGH SCORE 7</string>
+    <string name="high_score_8_name_key">HIGH SCORE 8</string>
+    <string name="high_score_9_name_key">HIGH SCORE 9</string>
+    <string name="high_score_10_name_key">HIGH SCORE 10</string>
+    <string name="high_score_1_value_key">HIGH SCORE VAL 1</string>
+    <string name="high_score_2_value_key">HIGH SCORE VAL 2</string>
+    <string name="high_score_3_value_key">HIGH SCORE VAL 3</string>
+    <string name="high_score_4_value_key">HIGH SCORE VAL 4</string>
+    <string name="high_score_5_value_key">HIGH SCORE VAL 5</string>
+    <string name="high_score_6_value_key">HIGH SCORE VAL 6</string>
+    <string name="high_score_7_value_key">HIGH SCORE VAL 7</string>
+    <string name="high_score_8_value_key">HIGH SCORE VAL 8</string>
+    <string name="high_score_9_value_key">HIGH SCORE VAL 9</string>
+    <string name="high_score_10_value_key">HIGH SCORE VAL 10</string>
+</resources>

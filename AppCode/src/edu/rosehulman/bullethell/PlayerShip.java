@@ -11,7 +11,8 @@ public class PlayerShip {
 	boolean touched = false;
 	private int width;
 	private int height;
-	private static int COLLISION_BUFFER = 4;
+	private static int COLLISION_BUFFER = 5;
+	private boolean invincible = false;
 
 	public boolean isTouched() {
 		return touched;
@@ -34,15 +35,15 @@ public class PlayerShip {
 	}
 
 	public int getTop() {
-		return y + (bitmap.getHeight() / 2) + COLLISION_BUFFER;
+		return y - (bitmap.getHeight() / 2) + COLLISION_BUFFER;
 	}
 
 	public int getLeft() {
-		return x - (bitmap.getWidth() / 2) - COLLISION_BUFFER;
+		return x - (bitmap.getWidth() / 2) + COLLISION_BUFFER;
 	}
 
 	public int getBottom() {
-		return y - (bitmap.getHeight() / 2) + COLLISION_BUFFER;
+		return y + (bitmap.getHeight() / 2) - COLLISION_BUFFER;
 	}
 
 	public int[] getCollisionVals(){
@@ -99,6 +100,25 @@ public class PlayerShip {
 		touched = false;
 		x = width/2;
 		y = (height*8)/10;
+		invincible = true;
 	}
+
+	public boolean isInvincible() {
+		return invincible;
+	}
+	
+	public void setInvincible(boolean b){
+		invincible = b;
+	}
+
+	public Point getLocation(){
+		return new Point(x,y);
+	}
+	public void drawBubble(Bitmap b, Canvas c){
+		c.drawBitmap(b, x - (b.getWidth() / 2),
+				y - (b.getHeight() / 2), null);
+		
+	}
+	
 
 }
