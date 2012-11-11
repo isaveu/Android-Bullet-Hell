@@ -45,8 +45,8 @@ public class MainThread extends Thread {
 					framesSkipped = 0;
 					this.gamePanel.update();
 					this.gamePanel.onDraw(canvas);
-
-					;
+					
+					
 					sleepTime = (int) (FRAME_PERIOD - (System
 							.currentTimeMillis() - beginTime));
 

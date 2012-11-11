@@ -25,9 +25,9 @@ public class GameView extends Activity {
 	public void onBackPressed() {
 		Log.d("TEST", "BACK PRESSED");
 		panel.stop();
-		//finish();
-		//setResult(RESULT_CANCELED);
-		//super.onBackPressed();
+		finish();
+		setResult(RESULT_CANCELED);
+		super.onBackPressed();
 	}
 
 	public void endGame() {
